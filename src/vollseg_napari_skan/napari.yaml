@@ -1,0 +1,48 @@
+name: vollseg-napari-skan
+display_name: VollSeg Napari Tissue Growth Tracking Plugin
+contributions:
+  commands:
+    - id: vollseg-napari-skan.get_reader
+      python_name: vollseg_napari_skan._reader:napari_get_reader
+      title: Open data with VollSeg Napari Tissue Growth Tracking Plugin
+    - id: vollseg-napari-skan.write_multiple
+      python_name: vollseg_napari_skan._writer:write_multiple
+      title: Save multi-layer data with VollSeg Napari Tissue Growth Tracking Plugin
+    - id: vollseg-napari-skan.write_single_image
+      python_name: vollseg_napari_skan._writer:write_single_image
+      title: Save image data with VollSeg Napari Tissue Growth Tracking Plugin
+    - id: vollseg-napari-skan.make_sample_data
+      python_name: vollseg_napari_skan._sample_data:make_sample_data
+      title: Load sample data from VollSeg Napari Tissue Growth Tracking Plugin
+    - id: vollseg-napari-skan.make_qwidget
+      python_name: vollseg_napari_skan._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: vollseg-napari-skan.make_magic_widget
+      python_name: vollseg_napari_skan._widget:example_magic_widget
+      title: Make example magic widget
+    - id: vollseg-napari-skan.make_func_widget
+      python_name: vollseg_napari_skan._widget:example_function_widget
+      title: Make example function widget
+  readers:
+    - command: vollseg-napari-skan.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  writers:
+    - command: vollseg-napari-skan.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: vollseg-napari-skan.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  sample_data:
+    - command: vollseg-napari-skan.make_sample_data
+      display_name: VollSeg Napari Tissue Growth Tracking Plugin
+      key: unique_id.1
+  widgets:
+    - command: vollseg-napari-skan.make_qwidget
+      display_name: Example QWidget
+    - command: vollseg-napari-skan.make_magic_widget
+      display_name: Example Magic Widget
+    - command: vollseg-napari-skan.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget
